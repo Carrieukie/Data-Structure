@@ -26,7 +26,7 @@
  */
 public class RansomNote {
     public static void main(String[] args) {
-        System.out.println(canConstruct("wewe", "hfvhjwew"));
+        System.out.println(canConstruct("wewe", "hfevhjwew"));
     }
 
     public static boolean canConstruct(String ransomNote, String magazine) {

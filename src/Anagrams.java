@@ -24,9 +24,9 @@ public class Anagrams {
 
         int[] table = new int[26];
 
-        for (int i = 0; i < s.length(); i++)
+        for (int i = 0; i < s.length(); i++){
             table[s.charAt(i) - 'a']++;
-
+        }
 
         for (int i = 0; i < t.length(); i++) {
             table[t.charAt(i) - 'a']--;
