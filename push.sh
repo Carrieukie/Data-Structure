@@ -1,3 +1,3 @@
 git add * 
-git commit -m "GraphTraversals"
+git commit -m "ConnectedComponentCount"
 git push

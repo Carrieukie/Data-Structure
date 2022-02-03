@@ -3,16 +3,19 @@ import java.util.*;
 public class GraphTraversals {
 
     public static void main(String[] args) {
-        recursiveDfs(getGraph(),"a");
+        bfs(getGraph(),"a");
     }
 
     public static void bfs(HashMap<String, ArrayList<String>> graph, String src){
 
         Queue<String> que= new LinkedList<>();
+        Set<String> visited = new HashSet<>();
         que.offer(src);
         while (!que.isEmpty()){
             String current =  que.poll();
+            if (visited.contains(current)) continue;
             System.out.println(current);
+            visited.add(current);
             for (String neighbour : graph.get(current)){
                 que.offer(neighbour);
             }
@@ -33,12 +36,12 @@ public class GraphTraversals {
 
     }
 
-    public static void recursiveDfs (HashMap<String, ArrayList<String>> graph, String src){
+    public static void recursiveDfs (HashMap<String, ArrayList<String>> graph, String src, String dest){
 
-        System.out.println(src);
+        System.out.println(src.equals(dest));
 
         for(String next : graph.get(src)){
-            recursiveDfs(graph,next);
+            recursiveDfs(graph,next, dest);
         }
 
     }
@@ -47,7 +50,7 @@ public class GraphTraversals {
         HashMap<String, ArrayList<String>> graph = new HashMap<>();
         graph.put("a", new ArrayList<>(Arrays.asList("b","c")));
         graph.put("b", new ArrayList<>(Arrays.asList("d")));
-        graph.put("c", new ArrayList<>(Arrays.asList("e")));
+        graph.put("c", new ArrayList<>(Arrays.asList("e","a")));
         graph.put("d", new ArrayList<>(Arrays.asList("f")));
         graph.put("e", new ArrayList<>(Arrays.asList()));
         graph.put("f", new ArrayList<>(Arrays.asList()));
